@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ground: #1b2a19;
+  --panel: #24361f;
+  --hairline: #37492f;
+  --ink: #f2eee2;
+  --ink-secondary: #aeb89f;
+
+  --mint: #6fdcc0;
+  --coral: #f0763c;
+  --gold: #f2c94c;
+  --lilac: #d9c3ea;
+
+  --lilac-tint: #f1e9f7;
+  --lilac-tint-panel: #e6d9ee;
+  --lilac-tint-hairline: #d8c3e5;
+  --lilac-tint-ink-secondary: #6b5a78;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-ground: var(--ground);
+  --color-panel: var(--panel);
+  --color-hairline: var(--hairline);
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-mint: var(--mint);
+  --color-coral: var(--coral);
+  --color-gold: var(--gold);
+  --color-lilac: var(--lilac);
+
+  --color-lilac-tint: var(--lilac-tint);
+  --color-lilac-tint-panel: var(--lilac-tint-panel);
+  --color-lilac-tint-hairline: var(--lilac-tint-hairline);
+  --color-lilac-tint-ink-secondary: var(--lilac-tint-ink-secondary);
+
+  --font-display: var(--font-instrument-serif), serif;
+  --font-sans: var(--font-work-sans), sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-work-sans), sans-serif;
+}
+
+/* Hero halftone auto-reveal: dot mask fades in on load, settling to a faint
+   permanent texture over whatever sits beneath it (placeholder or portrait). */
+@keyframes halftone-reveal {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.14;
+  }
+}
+
+.hero-halftone {
+  background-image: radial-gradient(var(--coral) 1.1px, transparent 1.3px);
+  background-size: 6px 6px;
+  animation: halftone-reveal 2s ease-out 0.5s both;
 }
