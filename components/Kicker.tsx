@@ -2,7 +2,7 @@ import type { Tone } from "./tone";
 import { toneTextClass } from "./tone";
 
 export function Kicker({
-  tone = "mint",
+  tone = "teal",
   children,
 }: {
   tone?: Tone;

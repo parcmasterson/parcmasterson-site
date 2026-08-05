@@ -3,47 +3,106 @@
 :root {
   --ground: #1b2a19;
   --panel: #24361f;
-  --hairline: #37492f;
-  --ink: #f2eee2;
+  --ink: #f5f1e4;
   --ink-secondary: #aeb89f;
 
-  --mint: #6fdcc0;
-  --coral: #f0763c;
+  --teal: #6fdcc0;
+  --orange: #f0763c;
   --gold: #f2c94c;
   --lilac: #d9c3ea;
 
   --lilac-tint: #f1e9f7;
   --lilac-tint-panel: #e6d9ee;
-  --lilac-tint-hairline: #d8c3e5;
   --lilac-tint-ink-secondary: #6b5a78;
+
+  --bone: #f5f1e4;
+
+  --error: #e8776c;
 }
 
 @theme inline {
   --color-ground: var(--ground);
   --color-panel: var(--panel);
-  --color-hairline: var(--hairline);
   --color-ink: var(--ink);
   --color-ink-secondary: var(--ink-secondary);
 
-  --color-mint: var(--mint);
-  --color-coral: var(--coral);
+  --color-teal: var(--teal);
+  --color-orange: var(--orange);
   --color-gold: var(--gold);
   --color-lilac: var(--lilac);
 
   --color-lilac-tint: var(--lilac-tint);
   --color-lilac-tint-panel: var(--lilac-tint-panel);
-  --color-lilac-tint-hairline: var(--lilac-tint-hairline);
   --color-lilac-tint-ink-secondary: var(--lilac-tint-ink-secondary);
+
+  --color-bone: var(--bone);
+
+  --color-error: var(--error);
 
   --font-display: var(--font-instrument-serif), serif;
   --font-sans: var(--font-work-sans), sans-serif;
   --font-mono: var(--font-ibm-plex-mono), monospace;
+
+  /* Section 4: single column/nav collapse at sm, two-column case study
+     layout viable at md, max content width kicks in at lg. xl matches lg —
+     the spec's "1440px+" row describes the same threshold, not a new one. */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 64rem;
+  --breakpoint-lg: 90rem;
+  --breakpoint-xl: 90rem;
 }
 
 body {
   background: var(--ground);
   color: var(--ink);
   font-family: var(--font-work-sans), sans-serif;
+}
+
+/* Focus ring: contextual, reusing whichever color already serves as ink on
+   the surface underneath, rather than one fixed accent (Section 1/5). Bone
+   on dark ground by default; ground wherever the surface itself already
+   flips ink to ground (bone card, lilac-tint block, the teal footer). */
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.bg-bone :focus-visible,
+.bg-lilac-tint :focus-visible,
+.bg-teal :focus-visible {
+  outline-color: var(--ground);
+}
+
+/* SCAO card template type tokens (Section 2). Not wired into any page yet —
+   defined ahead of the case study template build. */
+.type-card-kicker {
+  font-family: var(--font-work-sans), sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.type-lede {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 34px);
+  line-height: 1.3;
+}
+
+.type-situation-body {
+  font-family: var(--font-work-sans), sans-serif;
+  font-weight: 400;
+  font-size: clamp(19px, 2vw, 22px);
+  line-height: 1.5;
+}
+
+.type-outcome-list {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: clamp(22px, 2.2vw, 26px);
+  line-height: 1.6;
 }
 
 /* Hero halftone auto-reveal: dot mask fades in on load, settling to a faint
@@ -58,7 +117,7 @@ body {
 }
 
 .hero-halftone {
-  background-image: radial-gradient(var(--coral) 1.1px, transparent 1.3px);
+  background-image: radial-gradient(var(--orange) 1.1px, transparent 1.3px);
   background-size: 6px 6px;
   animation: halftone-reveal 2s ease-out 0.5s both;
 }

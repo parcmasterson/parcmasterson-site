@@ -9,7 +9,7 @@ const links = [
 export function Header() {
   return (
     <header>
-      <div className="mx-auto max-w-5xl px-6 md:px-10 py-6 flex items-center justify-between">
+      <div className="mx-auto max-w-[1120px] px-6 md:px-10 py-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
         <Link
           href="/"
           className="font-sans font-medium text-ink text-sm tracking-wide"

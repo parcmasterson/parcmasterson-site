@@ -1,15 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { caseStudies } from "@/lib/case-studies";
-import { toneTextClass, toneSoftBgClass } from "@/components/tone";
-
-const previewShapes = [
-  "rounded-[60%_40%_55%_45%/45%_55%_40%_60%]",
-  "rounded-3xl",
-  "rounded-full",
-  "rounded-[40%_60%_45%_55%/55%_45%_60%_40%]",
-];
+import { caseDetails } from "@/lib/case-details";
+import { toneTextClass } from "@/components/tone";
+import { ShapeSwatch } from "@/components/ShapeSwatch";
+import { shapeParade } from "@/lib/shapes";
 
 export function WorkIndex() {
   const [active, setActive] = useState(0);
@@ -144,7 +141,7 @@ export function WorkIndex() {
           containing block ends exactly at the last row and releases/scrolls
           away with it — it only exists to give the last row room to reach
           center. */}
-      <div className="mx-auto max-w-5xl px-6 md:px-10 grid md:grid-cols-[1fr_260px] gap-12">
+      <div className="mx-auto max-w-[1120px] px-6 md:px-10 grid md:grid-cols-[1fr_260px] gap-12">
         <ul>
           {caseStudies.map((c, i) => (
             <li
@@ -163,10 +160,16 @@ export function WorkIndex() {
               <h2
                 className={`font-display font-normal text-3xl md:text-5xl leading-tight mb-2 ${toneTextClass[c.tone]}`}
               >
-                {c.title}
+                {caseDetails[c.slug] ? (
+                  <Link href={`/work/${c.slug}`} className="hover:opacity-80">
+                    {c.title}
+                  </Link>
+                ) : (
+                  c.title
+                )}
               </h2>
               <p className="font-mono text-xs tracking-[0.02em] text-ink-secondary">
-                {c.client} &middot; {c.scope} &middot; {c.timeframe}
+                {c.client} &middot; {c.scope}
               </p>
             </li>
           ))}
@@ -175,9 +178,15 @@ export function WorkIndex() {
         <div className="hidden md:block">
           <div
             ref={shapeRef}
-            className={`sticky w-full h-64 transition-colors duration-300 ${previewShapes[active % previewShapes.length]} ${toneSoftBgClass[caseStudies[active].tone]}`}
+            className="sticky w-full h-64"
             style={{ top: shapeTop }}
-          />
+          >
+            <ShapeSwatch
+              shape={shapeParade[active % shapeParade.length]}
+              tone={caseStudies[active].tone}
+              className="transition-colors duration-300"
+            />
+          </div>
         </div>
       </div>
 

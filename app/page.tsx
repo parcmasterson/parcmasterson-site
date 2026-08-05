@@ -1,36 +1,32 @@
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
-import { toneSoftBgClass } from "@/components/tone";
+import { NodeField } from "@/components/NodeField";
+import { ShapeSwatch } from "@/components/ShapeSwatch";
+import { toneTextClass } from "@/components/tone";
 import { caseStudies } from "@/lib/case-studies";
 import { experience } from "@/lib/experience";
-
-const cardShapes = [
-  "rounded-[60%_40%_55%_45%/45%_55%_40%_60%]",
-  "rounded-3xl",
-  "rounded-full",
-  "rounded-[40%_60%_45%_55%/55%_45%_60%_40%]",
-];
+import { shapeParade } from "@/lib/shapes";
 
 const leadershipPrinciples = [
   {
-    title: "Create the conditions for collective potential",
-    body: "Psychological safety isn't comfort — it's the foundation that makes candor, calculated risk, and real innovation possible. Trust doesn't happen by default. I build it deliberately so teams can challenge ideas, surface concerns, and make mistakes without fear. High standards and safety reinforce each other. They don't trade off.",
+    title: "Good design is good business",
+    body: "I bring business sense and systems thinking to the tension between human outcomes and financial reality. I stay in that tension. I don't resolve it reflexively in either direction. Design earns its seat by delivering for people and the business simultaneously. That's not a compromise. It's the fundamental design problem worth solving.",
   },
   {
-    title: "Find the third way",
-    body: "Cross-functional influence isn't about winning or compromising — it's about co-creation. When perspectives conflict, both usually contain something true. My instinct is to resist the binary, hold both views with curiosity, and look for the path that neither side could have found alone. That's not a soft middle ground. It's often a better answer than either starting position. It's how design earns trust across functions — not by asserting its point of view, but by expanding what's possible.",
+    title: "Lead from within",
+    body: "I'm most effective as a player-coach, close to the work, contributing as a peer and an authority. I take on the less glamorous parts so teammates can stretch. That proximity grounds my guidance in specificity. It keeps my teams oriented toward clear outcomes. Empowered to act. Supported in ways that make me a resource my teams actually want to use.",
   },
   {
-    title: "Invest in people as practitioners and as people",
-    body: "I use co-active coaching to help team members take ownership of their growth — where they're trying to go, not just what the project needs from them. I listen to what people do, not what they say they can do, and build from actual capability toward aspirational capability.",
+    title: "Candor drives craft",
+    body: "I treat the team environment as a design problem. I establish shared ownership, team norms, and rituals that make candor and critique the default, not the exception. Practitioners seek out others to make their ideas better. Hard conversations happen instinctively. Teams stop chasing a fractured sense of perfection. What replaces it is a shared definition of great work.",
   },
   {
-    title: "Lead with vision and operate as a player-coach",
-    body: "I work hard to articulate a rich picture of where we're going — specific enough to orient, open enough for people to bring their own perspective to get there. Empowerment means designing the relationship: clear expectations, shared purpose, deliberate feedback loops. Not hands-off — hands-on in the right moments. I do the work and build the conditions for others to do it well simultaneously. That's not a transitional mode. It's how I'm most effective.",
+    title: "Find third ways",
+    body: "I approach cross-functional relationships as investments, not negotiations. Understanding the priorities, challenges, and key measures other leaders are after enables open exchanges, direct challenges, and co-creation. Co-creation that produces something neither side could have reached alone. This allows service design's influence to take root across functions and disciplines. No formal authority required.",
   },
   {
-    title: "Connect human outcomes to business impact — and hold both",
-    body: "Design earns its seat by demonstrating value in terms the business cares about. But business impact without human grounding produces the wrong things efficiently. I keep both in view simultaneously — navigating the tradeoffs practically, in the near and long term. That means staying oriented to the ideal while making continuous, incremental progress through lean experimentation and learning loops. Don't get lost in either direction too long.",
+    title: "People are the practice",
+    body: "I view coaching as a core part of my practice. I use a co-active approach, designing relationships around the priorities that matter to practitioners, not the ones I think they should have. The result is people who stop looking for answers and start finding them. Who stop coming back for approval and start coming back with what they learned.",
   },
 ];
 
@@ -48,41 +44,33 @@ export default function Home() {
   return (
     <main className="flex-1">
       {/* Hero */}
-      <section id="hero" className="pt-24 pb-20 md:pt-32 md:pb-28">
-        <div className="mx-auto max-w-5xl px-6 md:px-10 grid gap-12 md:grid-cols-[1fr_auto] md:items-center">
-          <div>
-            <Kicker tone="mint">
-              Service design leader &middot; practice builder &middot; systems thinker
-            </Kicker>
-            <h1 className="font-display font-normal text-mint text-[clamp(2.6rem,7vw,4.5rem)] leading-[1.05] mb-5">
-              Systems have edges.
-              <br />
-              People live past them.
-            </h1>
-            <p className="text-ink-secondary text-lg leading-relaxed max-w-xl">
-              Parc Masterson builds service design practice inside complex
-              organizations — from zero-to-one innovation to enterprise-scale
-              alignment.
-            </p>
-          </div>
-
-          <div className="relative w-44 h-44 md:w-56 md:h-56 shrink-0 overflow-hidden rounded-[50%_45%_55%_50%/50%_55%_45%_50%] bg-gradient-to-br from-panel to-hairline">
-            {/* Placeholder portrait layer. Swap for a real photo (e.g. an
-                <Image src="/portrait.jpg" fill className="object-cover" />)
-                when one is ready — the halftone overlay below will still
-                auto-reveal it on load without further changes. */}
-            <div className="absolute inset-0 hero-halftone" />
-          </div>
+      <section
+        id="hero"
+        className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-28 md:min-h-[560px] flex items-center"
+      >
+        <NodeField className="absolute inset-0" />
+        <div className="relative mx-auto max-w-[1120px] px-6 md:px-10">
+          <p className="font-display font-normal italic text-ink text-3xl md:text-4xl leading-tight max-w-2xl">
+            Hi, I&rsquo;m Parc.
+          </p>
+          <p className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-ink mt-1">
+            Service design leader &middot; practice builder &middot; systems thinker
+          </p>
+          <h1 className="font-display font-normal text-orange text-[clamp(2.6rem,7vw,4.5rem)] leading-[1.05] mb-5 max-w-2xl mt-8">
+            I connect mental models to business models — building service
+            design practices from scratch to deliver what didn&rsquo;t exist
+            before.
+          </h1>
         </div>
       </section>
 
       {/* Work signal strip */}
       <section id="work" className="py-16 md:py-20">
-        <div className="mx-auto max-w-5xl px-6 md:px-10 flex flex-wrap items-end justify-between gap-6 mb-8">
+        <div className="mx-auto max-w-[1120px] px-6 md:px-10 flex flex-wrap items-end justify-between gap-6 mb-8">
           <div>
             <Kicker tone="gold">Selected work</Kicker>
             <h2 className="font-display font-normal text-ink text-3xl md:text-4xl leading-tight max-w-2xl">
-              Proof before philosophy.
+              Case studies
             </h2>
           </div>
           <Link
@@ -97,13 +85,18 @@ export default function Home() {
         >
           {caseStudies.map((c, i) => (
             <li key={c.slug} className="snap-start shrink-0 w-56">
-              <div
-                className={`w-full h-36 mb-4 ${cardShapes[i % cardShapes.length]} ${toneSoftBgClass[c.tone]}`}
-              />
-              <h3 className="font-sans font-medium text-ink text-base leading-snug mb-1">
+              <div className="w-full h-36 mb-4">
+                <ShapeSwatch shape={shapeParade[i % shapeParade.length]} tone={c.tone} />
+              </div>
+              <p
+                className={`font-mono text-[11px] font-medium uppercase tracking-[0.06em] leading-[1.3] mb-1.5 ${toneTextClass[c.tone]}`}
+              >
+                {c.client}
+              </p>
+              <h3 className="font-sans font-medium text-ink text-base leading-snug mb-1.5">
                 {c.title}
               </h3>
-              <p className="font-mono text-[11px] tracking-[0.02em] text-ink-secondary">
+              <p className="font-mono text-[11px] font-medium uppercase tracking-[0.06em] leading-[1.3] text-ink-secondary">
                 {c.scope}
               </p>
             </li>
@@ -112,77 +105,79 @@ export default function Home() {
       </section>
 
       {/* Philosophy — Who I Am */}
-      <section id="about" className="bg-ink py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6 md:px-10 grid gap-12 md:grid-cols-[1fr_240px]">
-          <div>
-            <Kicker tone="coral">About</Kicker>
+      <section id="about" className="bg-bone py-20 md:py-28">
+        <div className="mx-auto max-w-[1120px] px-6 md:px-10 grid gap-12 md:grid-cols-[1fr_240px]">
+          <div className="md:col-start-1 md:row-start-1">
+            <Kicker tone="orange">About</Kicker>
             <h2 className="font-display font-normal text-ground text-3xl md:text-4xl leading-tight mb-6">
-              Who I Am
+              This is me
             </h2>
+          </div>
+
+          <div className="md:col-start-1 md:row-start-2">
             <div className="space-y-5 max-w-[60ch]">
               <p className="text-ground text-base leading-[1.75]">
-                I came to service design through an unusually wide door. The
-                path wasn&rsquo;t planned — it was followed, curiosity
-                pulling me from one domain to the next until the pieces
-                clicked into something that couldn&rsquo;t have been designed
-                in advance. That breadth wasn&rsquo;t a detour. It&rsquo;s
-                the foundation. I spent years working at the touchpoint
-                level across physical, digital, and human channels, learning
-                what it actually costs to execute an idea in the real world.
-                That experience is what makes systems thinking useful rather
-                than abstract.
-              </p>
-              <p className="text-ground text-base leading-[1.75]">
-                My perspective is fed by fields well outside design —
-                because the best frames for design problems usually come
-                from somewhere else. I&rsquo;m genuinely at home in
-                complexity and ambiguity — not as something to be managed
-                down but as the terrain where the most interesting work
-                happens. I hold the tension between seeing the full system
-                and knowing when to set most of it aside to solve
-                what&rsquo;s immediately in front of me.
-              </p>
-              <p className="text-ground text-base leading-[1.75]">
-                At my best I&rsquo;m a builder and a player-coach. I find the
-                most meaning in creating the conditions for service design
-                to take root inside an organization — earning trust,
-                establishing credibility, creating demand, and scaling from
-                there. I&rsquo;ve done that twice in meaningful ways. I want
-                to do it again, inside an enterprise, where the impact can
-                compound over time.
+                I&rsquo;m a design leader who builds service design practices
+                inside complex organizations to design, operate, and deliver
+                intelligent services that hold up over time. First at Signal
+                Theory, where I founded the Innovation &amp; Experience
+                practice from the ground up and wove it into a 150-person
+                agency. I&rsquo;ve been doing a version of it ever since at
+                Harmonic Design, across engagements ranging from a
+                100-year-old Fortune 500 insurer to a global airline. None of
+                it started with a clear mandate. All of it ended with
+                investment secured, business units aligned, and something
+                real running in market. I don&rsquo;t advise from outside. I
+                operate as a player-coach, co-creating the practice and the
+                methods with the people who sustain the work after
+                I&rsquo;m gone.
               </p>
             </div>
-            <blockquote className="font-display italic text-coral text-xl md:text-2xl leading-snug border-l-2 border-coral pl-6 mt-8 max-w-[52ch]">
-              A lifelong Kansas City native. Architect wife, two daughters,
-              one fast dog. Fueled by sci-fi, social science, strategy
-              books, and Cap&rsquo;n Crunch.
+            <blockquote className="italic text-ground text-base leading-[1.75] mt-5 max-w-[60ch]">
+              I&rsquo;m a true midwesterner and Kansas City native, married to
+              an amazing architect, raising two daughters and a dog who
+              outruns all three of us. I read more sci-fi and social science
+              than design books, because I think the best frames for design
+              come from somewhere else. I fuel my weekly runs with heaping
+              bowls of Cap&rsquo;n Crunch and way too many podcasts.
             </blockquote>
           </div>
 
-          <div>
-            <p className="font-mono text-[11px] tracking-[0.02em] text-ground/70 uppercase mb-4">
-              Dimensions of practice
-            </p>
-            <ul className="font-mono text-[13px] leading-relaxed text-coral space-y-1.5">
-              {dimensionsOfPractice.map((d) => (
-                <li key={d}>{d}</li>
-              ))}
-            </ul>
+          <div className="md:col-start-2 md:row-start-2">
+            <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10 md:flex-col md:gap-0">
+              <div className="relative w-full max-w-[240px] aspect-square mb-8 shrink-0 sm:mb-0 md:mb-8 overflow-hidden rounded-[50%_45%_55%_50%/50%_55%_45%_50%] bg-panel">
+                {/* Placeholder portrait layer. Swap for a real photo (e.g. an
+                    <Image src="/portrait.jpg" fill className="object-cover" />)
+                    when one is ready — the halftone overlay below will still
+                    auto-reveal it on load without further changes. */}
+                <div className="absolute inset-0 hero-halftone" />
+              </div>
+              <div className="sm:flex-1 md:flex-none">
+                <p className="font-mono text-[11px] tracking-[0.02em] text-ground/70 uppercase mb-4">
+                  Dimensions of practice
+                </p>
+                <ul className="font-mono text-[13px] leading-relaxed text-orange space-y-1.5">
+                  {dimensionsOfPractice.map((d) => (
+                    <li key={d}>{d}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How I Lead */}
       <section id="how-i-lead" className="py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6 md:px-10">
-          <Kicker tone="mint">Leadership</Kicker>
+        <div className="mx-auto max-w-[1120px] px-6 md:px-10">
+          <Kicker tone="teal">Leadership</Kicker>
           <h2 className="font-display font-normal text-ink text-3xl md:text-4xl leading-tight mb-8">
-            How I Lead
+            Principles of practice
           </h2>
           <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {leadershipPrinciples.map((p, i) => (
               <div key={p.title}>
-                <span className="font-display font-normal text-ink-secondary text-3xl leading-none block mb-3">
+                <span className="font-display font-normal text-teal text-3xl leading-none block mb-3">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-sans font-semibold text-ink text-lg mb-2">
@@ -199,15 +194,15 @@ export default function Home() {
 
       {/* Experience timeline */}
       <section id="experience" className="py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6 md:px-10">
-          <Kicker tone="mint">Background</Kicker>
+        <div className="mx-auto max-w-[1120px] px-6 md:px-10">
+          <Kicker tone="lilac">Background</Kicker>
           <h2 className="font-display font-normal text-ink text-3xl md:text-4xl leading-tight mb-10">
             Experience
           </h2>
           <ol className="relative space-y-9 max-w-xl">
             {experience.map((role) => (
               <li key={`${role.company}-${role.dates}`} className="relative pl-8">
-                <span className="absolute left-[-4px] top-[7px] w-[7px] h-[7px] rounded-full bg-mint" />
+                <span className="absolute left-[-4px] top-[7px] w-[7px] h-[7px] rounded-full bg-lilac" />
                 <p className="font-mono text-xs tracking-[0.02em] text-ink-secondary mb-1">
                   {role.dates}
                 </p>
@@ -223,43 +218,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What I'm Looking For */}
-      <section id="looking-for" className="py-20 md:py-28">
-        <div className="mx-auto max-w-5xl px-6 md:px-10">
-          <Kicker tone="lilac">What&rsquo;s next</Kicker>
-          <h2 className="font-display font-normal text-ink text-3xl md:text-4xl leading-tight mb-6 max-w-2xl">
-            What I&rsquo;m Looking For
-          </h2>
-          <div className="space-y-5 max-w-[68ch]">
-            <p className="text-ink text-base leading-[1.75]">
-              I want to build a service design practice that delivers real
-              impact — to the business and to the people it serves. Work
-              that ties mental models to business models, orchestrates
-              across functions, and builds resilient systems for delivering
-              products and services. A practice that&rsquo;s sustainable,
-              high-performing, and evolving to meet a changing landscape.
-              The right environment for that work is complex — regulated
-              industries, multi-actor ecosystems, organizations where the
-              hard problems are organizational as much as they are
-              experiential.
-            </p>
-            <p className="text-ink text-base leading-[1.75]">
-              The organizations I&rsquo;m drawn to share a few things.
-              Executives who are genuinely invested in what design can do —
-              not just supporting it in principle, but sponsoring the work
-              in practice and honest enough about the organizational terrain
-              to help navigate what&rsquo;s ahead. A recognition that design
-              operates upstream of execution — a strategic capability, not a
-              finishing detail. A culture where shared ownership, autonomy,
-              curiosity, and experimentation are visible in how people work
-              together, not just stated in how the company describes
-              itself. And a leader worth learning from — a VP or CDO with a
-              strong point of view — whose thinking challenges mine and
-              whose example raises what&rsquo;s possible.
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

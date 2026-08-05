@@ -5,7 +5,6 @@ export type CaseSummary = {
   title: string;
   client: string;
   scope: string;
-  timeframe: string;
   tone: Tone;
   pull: {
     pre: string;
@@ -20,8 +19,7 @@ export const caseStudies: CaseSummary[] = [
     title: "Personal Auto Insurance Shopping Ecosystem",
     client: "Fortune 500 insurer",
     scope: "End-to-end service redesign",
-    timeframe: "~4 months",
-    tone: "coral",
+    tone: "orange",
     pull: {
       pre: "Received ",
       highlight: "unanimous board approval",
@@ -33,7 +31,6 @@ export const caseStudies: CaseSummary[] = [
     title: "Enterprise Innovation Presence",
     client: "Fortune 500 insurer",
     scope: "Sustained organizational engagement",
-    timeframe: "5 years",
     tone: "gold",
     pull: {
       pre: "Scaled an innovation portfolio worth ",
@@ -46,8 +43,7 @@ export const caseStudies: CaseSummary[] = [
     title: "Vacation Rental Host & Guest Experience",
     client: "Evolve Vacation Rental",
     scope: "Service redesign",
-    timeframe: "~3–4 months",
-    tone: "mint",
+    tone: "teal",
     pull: {
       pre: "Replaced marketing personas with ",
       highlight: "four research-backed host segments",
@@ -58,8 +54,7 @@ export const caseStudies: CaseSummary[] = [
     slug: "practice-build",
     title: "Innovation & Experience Practice Build",
     client: "Signal Theory",
-    scope: "Practice founding",
-    timeframe: "2018–2021",
+    scope: "Practice building",
     tone: "gold",
     pull: {
       pre: "Won a ",
@@ -69,10 +64,9 @@ export const caseStudies: CaseSummary[] = [
   },
   {
     slug: "roofing",
-    title: "Residential Roofing Innovation",
+    title: "Residential Roofing Innovation (Roof-as-a-Service)",
     client: "Fortune 500 insurer",
-    scope: "Adjacent-to-core innovation",
-    timeframe: "Current",
+    scope: "Adjacent innovation",
     tone: "gold",
     pull: {
       pre: "Defined a north star with ",
@@ -85,8 +79,7 @@ export const caseStudies: CaseSummary[] = [
     title: "Small Business Exit Service",
     client: "Fortune 500 insurer",
     scope: "Zero-to-one innovation",
-    timeframe: "2+ years",
-    tone: "coral",
+    tone: "orange",
     pull: {
       pre: "Compressed time-to-alignment from ",
       highlight: "months to weeks",
@@ -98,8 +91,7 @@ export const caseStudies: CaseSummary[] = [
     title: "Service Vision and Brand Architecture",
     client: "P&G Tide Cleaners",
     scope: "Service unification",
-    timeframe: "Signal Theory",
-    tone: "mint",
+    tone: "teal",
     pull: {
       pre: "Unified three formats into ",
       highlight: "one shared brand system",
@@ -111,8 +103,7 @@ export const caseStudies: CaseSummary[] = [
     title: "Store-Within-a-Store Transformation",
     client: "P&G Tide Cleaners",
     scope: "Format expansion",
-    timeframe: "Signal Theory",
-    tone: "mint",
+    tone: "teal",
     pull: {
       pre: "Delivered an ",
       highlight: "execution-ready",
