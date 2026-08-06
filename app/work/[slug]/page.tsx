@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CaseStudyLock } from "@/components/CaseStudyLock";
 import { Kicker } from "@/components/Kicker";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { toneTextClass, type Tone } from "@/components/tone";
 import { caseStudies } from "@/lib/case-studies";
 import { caseDetails, type CaseSection } from "@/lib/case-details";
+import { isCaseUnlocked } from "@/lib/case-auth";
 
 export async function generateStaticParams() {
   return Object.keys(caseDetails).map((slug) => ({ slug }));
@@ -133,13 +135,27 @@ function SectionBlock({
 
 export default async function CaseStudyPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ error?: string }>;
 }) {
   const { slug } = await params;
   const found = findCase(slug);
   if (!found) notFound();
   const { summary, detail } = found;
+
+  if (summary.protected && !(await isCaseUnlocked())) {
+    const { error } = await searchParams;
+    return (
+      <CaseStudyLock
+        slug={slug}
+        title={summary.title}
+        tone={summary.tone}
+        hasError={error === "1"}
+      />
+    );
+  }
 
   return (
     <main className="flex-1 pt-16 pb-24 md:pt-20 md:pb-32">

@@ -6,6 +6,7 @@ export type CaseSummary = {
   client: string;
   scope: string;
   tone: Tone;
+  protected?: boolean;
   pull: {
     pre: string;
     highlight: string;
@@ -20,6 +21,7 @@ export const caseStudies: CaseSummary[] = [
     client: "Fortune 500 insurer",
     scope: "End-to-end service redesign",
     tone: "orange",
+    protected: true,
     pull: {
       pre: "Received ",
       highlight: "unanimous board approval",
@@ -32,6 +34,7 @@ export const caseStudies: CaseSummary[] = [
     client: "Fortune 500 insurer",
     scope: "Sustained organizational engagement",
     tone: "gold",
+    protected: true,
     pull: {
       pre: "Scaled an innovation portfolio worth ",
       highlight: "$250M",
@@ -68,6 +71,7 @@ export const caseStudies: CaseSummary[] = [
     client: "Fortune 500 insurer",
     scope: "Adjacent innovation",
     tone: "gold",
+    protected: true,
     pull: {
       pre: "Defined a north star with ",
       highlight: "$100M",
@@ -80,6 +84,7 @@ export const caseStudies: CaseSummary[] = [
     client: "Fortune 500 insurer",
     scope: "Zero-to-one innovation",
     tone: "orange",
+    protected: true,
     pull: {
       pre: "Compressed time-to-alignment from ",
       highlight: "months to weeks",
