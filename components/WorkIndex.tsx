@@ -37,6 +37,14 @@ export function WorkIndex() {
 
   useEffect(() => {
     function updateFirstPad() {
+      // This padding only exists to center the first row at initial page
+      // load, so it's only ever meaningful while at the top of the page.
+      // Skip recompute otherwise: on mobile, `resize` also fires when the
+      // browser chrome (address bar) hides/shows mid-scroll, and at that
+      // point the row is off-screen — reading its position then produces
+      // a bogus padding that shows up as a giant gap once the user
+      // scrolls back to top.
+      if (window.scrollY > 0) return;
       const li1 = rowRefs.current[0];
       if (!li1) return;
       const rect = li1.getBoundingClientRect();
