@@ -17,7 +17,7 @@ export function Footer() {
             href={`mailto:${EMAIL}`}
             className="font-sans text-sm font-medium hover:opacity-70 transition-opacity"
           >
-            Email me &#8599;
+            Email me &#8599;&#xFE0E;
           </a>
           <a
             href={LINKEDIN_URL}
@@ -25,7 +25,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="font-sans text-sm font-medium hover:opacity-70 transition-opacity"
           >
-            Linkedin &#8599;
+            Linkedin &#8599;&#xFE0E;
           </a>
           <a
             href={INSTAGRAM_URL}
@@ -33,7 +33,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="font-sans text-sm font-medium hover:opacity-70 transition-opacity"
           >
-            Instagram &#8599;
+            Instagram &#8599;&#xFE0E;
           </a>
         </div>
         <p className="font-mono text-xs text-ground/70">
