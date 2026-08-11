@@ -86,26 +86,28 @@ export default function Home() {
         >
           {caseStudies.map((c, i) => (
             <li key={c.slug} className="snap-start shrink-0 w-56">
-              <div className="relative w-full h-48 mb-4">
-                <ShapeSwatch shape={shapeParade[i % shapeParade.length]} tone={c.tone} />
-                {c.protected && (
-                  <span
-                    className="absolute top-3 right-3 flex items-center justify-center w-7 h-7 rounded-full bg-ground/80 text-bone"
-                    aria-label="Password protected"
-                    title="Password protected"
-                  >
-                    <LockIcon />
-                  </span>
-                )}
-              </div>
-              <p
-                className={`font-mono text-[11px] font-medium uppercase tracking-[0.06em] leading-[1.3] mb-1.5 ${toneTextClass[c.tone]}`}
-              >
-                {c.client}
-              </p>
-              <h3 className="font-sans font-medium text-ink text-base leading-snug mb-1.5">
-                {c.title}
-              </h3>
+              <Link href={`/work/${c.slug}`} className="group block">
+                <div className="relative w-full h-48 mb-4">
+                  <ShapeSwatch shape={shapeParade[i % shapeParade.length]} tone={c.tone} />
+                  {c.protected && (
+                    <span
+                      className="absolute top-3 right-3 flex items-center justify-center w-7 h-7 rounded-full bg-ground/80 text-bone"
+                      aria-label="Password protected"
+                      title="Password protected"
+                    >
+                      <LockIcon />
+                    </span>
+                  )}
+                </div>
+                <p
+                  className={`font-mono text-[11px] font-medium uppercase tracking-[0.06em] leading-[1.3] mb-1.5 ${toneTextClass[c.tone]}`}
+                >
+                  {c.client}
+                </p>
+                <h3 className="font-sans font-medium text-ink text-base leading-snug mb-1.5 group-hover:opacity-70 transition-opacity">
+                  {c.title}
+                </h3>
+              </Link>
               <p className="font-mono text-[11px] font-medium uppercase tracking-[0.06em] leading-[1.3] text-ink-secondary">
                 {c.scope}
               </p>
