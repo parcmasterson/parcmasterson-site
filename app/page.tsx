@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Kicker } from "@/components/Kicker";
 import { LockIcon } from "@/components/LockIcon";
@@ -158,10 +159,14 @@ export default function Home() {
           <div className="md:col-start-2 md:row-start-2">
             <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10 md:flex-col md:gap-0">
               <div className="relative w-full max-w-[240px] aspect-square mb-8 shrink-0 sm:mb-0 md:mb-8 overflow-hidden rounded-[50%_45%_55%_50%/50%_55%_45%_50%] bg-panel">
-                {/* Placeholder portrait layer. Swap for a real photo (e.g. an
-                    <Image src="/portrait.jpg" fill className="object-cover" />)
-                    when one is ready — the halftone overlay below will still
-                    auto-reveal it on load without further changes. */}
+                <Image
+                  src="/portrait.jpg"
+                  alt="Portrait of Parc Masterson"
+                  fill
+                  sizes="240px"
+                  className="object-cover"
+                  priority
+                />
                 <div className="absolute inset-0 hero-halftone" />
               </div>
               <div className="sm:flex-1 md:flex-none">
